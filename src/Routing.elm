@@ -5,18 +5,22 @@ import UrlParser exposing (..)
 
 
 type Route
-    = AboutRoute
+    = ProfileRoute
+    | ExperienceRoute
+    | EducationAndTrainingRoute
     | SkillsRoute
-    | WorkRoute
+    | PortfolioRoute
     | NotFoundRoute
 
 
 matchers : Parser (Route -> a) a
 matchers =
     oneOf
-        [ map AboutRoute top
+        [ map ProfileRoute top
+        , map ExperienceRoute (s "experience")
+        , map EducationAndTrainingRoute (s "education-and-training")
         , map SkillsRoute (s "skills")
-        , map WorkRoute (s "work")
+        , map PortfolioRoute (s "portfolio")
         ]
 
 

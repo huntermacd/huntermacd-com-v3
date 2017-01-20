@@ -3,9 +3,11 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Navigation exposing (Location)
-import About exposing (view)
+import Profile exposing (view)
+import Experience exposing (view)
+import EducationAndTraining exposing (view)
 import Skills exposing (view)
-import Work exposing (view)
+import Portfolio exposing (view)
 import NotFound exposing (view)
 import Routing exposing (parseLocation, Route(..))
 
@@ -26,6 +28,7 @@ main =
 
 type alias Model =
     { route : Route
+    , displayClientWork : Bool
     }
 
 
@@ -35,7 +38,7 @@ init location =
         currentRoute =
             parseLocation location
     in
-        ( { route = currentRoute }, Cmd.none )
+        ( { route = currentRoute, displayClientWork = True }, Cmd.none )
 
 
 
@@ -67,27 +70,35 @@ view model =
         [ header []
             [ nav []
                 [ ul []
-                    [ li [] [ a [ href "#" ] [ text "About" ] ]
-                    , li [] [ a [ href "#skills" ] [ text "Skills" ] ]
-                    , li [] [ a [ href "#work" ] [ text "Work" ] ]
+                    [ li [] [ a [ href "#/" ] [ text "Profile" ] ]
+                    , li [] [ a [ href "#/experience" ] [ text "Experience" ] ]
+                    , li [] [ a [ href "#/education-and-training" ] [ text "Education & Training" ] ]
+                    , li [] [ a [ href "#/skills" ] [ text "Skills" ] ]
+                    , li [] [ a [ href "#/portfolio" ] [ text "Portfolio" ] ]
                     ]
                 ]
             ]
-        , section [] [ page model ]
+        , div [ class "content" ] [ page model ]
         ]
 
 
 page : Model -> Html Msg
 page model =
     case model.route of
-        AboutRoute ->
-            About.view
+        ProfileRoute ->
+            Profile.view
+
+        ExperienceRoute ->
+            Experience.view
+
+        EducationAndTrainingRoute ->
+            EducationAndTraining.view
 
         SkillsRoute ->
             Skills.view
 
-        WorkRoute ->
-            Work.view
+        PortfolioRoute ->
+            Portfolio.view
 
         NotFoundRoute ->
             NotFound.view
