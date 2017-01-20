@@ -1,10 +1,10 @@
 {
     "version": "1.0.0",
     "summary": "My personal portfolio site.",
-    "repository": "https://github.com/user/project.git",
+    "repository": "https://github.com/huntermacd/huntermacd-com-v3.git",
     "license": "BSD3",
     "source-directories": [
-        "src", "src/views"
+        "src"
     ],
     "exposed-modules": [],
     "dependencies": {
