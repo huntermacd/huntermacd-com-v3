@@ -2,6 +2,7 @@ module Views exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
 import Messages exposing (Msg)
 import Models exposing (Model)
 import Routing exposing (Route(..))
@@ -29,26 +30,26 @@ pageView : Model -> Html Msg
 pageView model =
     case model.route of
         ProfileRoute ->
-            profileView
+            profileView model
 
         ExperienceRoute ->
-            experienceView
+            experienceView model
 
         EducationAndTrainingRoute ->
-            educationAndTrainingView
+            educationAndTrainingView model
 
         SkillsRoute ->
-            skillsView
+            skillsView model
 
         PortfolioRoute ->
-            portfolioView
+            portfolioView model
 
         NotFoundRoute ->
-            notFoundView
+            notFoundView model
 
 
-profileView : Html msg
-profileView =
+profileView : Model -> Html Msg
+profileView model =
     section []
         [ h1 [] [ text "Profile" ]
         , img [ src "../../imgs/huntermacd.jpg", alt "A picture of Hunter MacDermut." ] []
@@ -76,8 +77,8 @@ profileView =
         ]
 
 
-experienceView : Html msg
-experienceView =
+experienceView : Model -> Html Msg
+experienceView model =
     section []
         [ h1 [] [ text "Experience" ]
         , h2 [] [ text "Web Developer, Cox Media Group; Remote — September 2014-November 2016" ]
@@ -106,8 +107,8 @@ experienceView =
         ]
 
 
-educationAndTrainingView : Html msg
-educationAndTrainingView =
+educationAndTrainingView : Model -> Html Msg
+educationAndTrainingView model =
     section []
         [ h1 [] [ text "Education & Training" ]
         , p [] [ text "As a self-taught programmer, I take online courses and value on-the-job experience. I continue to use the following resources to stay up-to-date with new frameworks and industry best practices:" ]
@@ -130,8 +131,8 @@ educationAndTrainingView =
         ]
 
 
-skillsView : Html msg
-skillsView =
+skillsView : Model -> Html Msg
+skillsView model =
     section []
         [ h1 [] [ text "Skills" ]
         , p [] [ text "I specialize in front-end web technologies, with a focus on turning design comps into functional web pages. I have experience working with the following:" ]
@@ -157,17 +158,35 @@ skillsView =
         ]
 
 
-portfolioView : Html msg
-portfolioView =
+portfolioView : Model -> Html Msg
+portfolioView model =
     section []
         [ h1 [] [ text "Portfolio" ]
         , div []
-            [ div [] [ text "Client Work" ]
-            , div [] [ text "Side Projects" ]
+            [ div [ onClick Messages.ShowClientWork ] [ text "Client Work" ]
+            , div [ onClick Messages.ShowSideProjects ] [ text "Side Projects" ]
             ]
+        , if model.displayClientWork == True then
+            clientWorkView model
+          else
+            sideProjectView model
         ]
 
 
-notFoundView : Html msg
-notFoundView =
+clientWorkView : Model -> Html Msg
+clientWorkView model =
+    article []
+        [ h2 [] [ text "Member Center, Cox Media Group" ]
+        , img [ src "../../imgs/cmg-logo.png", alt "Cox Media Group logo." ] []
+        , p [] [ text "I worked for Cox Media Group from September 2014 to November 2016, principally on their Member Center application. This app began as a section of their various newspaper, television, and radio homepages where users could manage their profile info, newsletter subscriptions, and SMS alerts. In April 2016, as their Python/Django-based CMS was being replaced, I was 1 of 3 developers chosen to spearhead the Member Center-as-a-service project, which would recreate Member Center as a standalone app to which any Cox property could link their users." ]
+        ]
+
+
+sideProjectView : Model -> Html Msg
+sideProjectView model =
+    p [] [ text "Side Project view!" ]
+
+
+notFoundView : Model -> Html Msg
+notFoundView model =
     h1 [] [ text "NotFound Page" ]

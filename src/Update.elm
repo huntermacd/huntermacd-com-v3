@@ -15,3 +15,9 @@ update msg model =
                     parseLocation location
             in
                 ( { model | route = newRoute }, Cmd.none )
+
+        ShowClientWork ->
+            ( { model | displayClientWork = True }, Cmd.none )
+
+        ShowSideProjects ->
+            ( { model | displayClientWork = False }, Cmd.none )
