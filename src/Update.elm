@@ -1,9 +1,11 @@
 module Update exposing (..)
 
+import Dom.Scroll exposing (toTop)
 import Messages exposing (Msg(..))
 import Models exposing (Model)
 import Navigation exposing (Location)
 import Routing exposing (parseLocation)
+import Task exposing (perform)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -21,3 +23,9 @@ update msg model =
 
         ShowSideProjects ->
             ( { model | displayClientWork = False }, Cmd.none )
+
+        ToTop ->
+            ( model, toTop "app-root" |> Task.attempt ToTopResult )
+
+        ToTopResult result ->
+            ( model, Cmd.none )
