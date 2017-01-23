@@ -5,3 +5,46 @@ body {
 .caption a {
   font-size: 0.85714em;
 }
+
+.technologies {
+  margin: 10px 0;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+/* bar graph */
+.graph {
+  max-width: 768px;
+}
+
+.bar {
+  border-radius: 0 50px 50px 0;
+  padding: 5px;
+}
+
+.html {
+  background-color: aqua;
+  width: 90%;
+}
+
+.css {
+  background-color: yellow;
+  width: 100%;
+}
+
+.js {
+  background-color: purple;
+  width: 80%;
+}
+
+.python {
+  background-color: lime;
+  width: 40%;
+}
+
+.elm {
+  background-color: darkblue;
+  width: 50%;
+}
