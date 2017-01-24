@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat+Subrayada");
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-image: url("../imgs/misc/handmadepaper.png");
   padding-top: 50px;
