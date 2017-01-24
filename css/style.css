@@ -18,6 +18,16 @@ h3 {
   text-align: center;
 }
 
+.content {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.exp-header {
+  margin: 0 auto;
+  display: table;
+}
+
 .caption a {
   font-size: 0.85714em;
 }
@@ -34,7 +44,7 @@ h3 {
   margin-right: 5px;
 }
 
-/* bar graph */
+/* Bar Graph */
 .graph {
   max-width: 768px;
 }
@@ -58,27 +68,22 @@ h3 {
 }
 
 .html {
-  /*background-color: aqua;*/
   width: 90%;
 }
 
 .css {
-  /*background-color: yellow;*/
   width: 100%;
 }
 
 .js {
-  /*background-color: purple;*/
   width: 80%;
 }
 
 .python {
-  /*background-color: lime;*/
   width: 40%;
 }
 
 .elm {
-  /*background-color: darkblue;*/
   width: 50%;
 }
 
@@ -86,6 +91,8 @@ h3 {
 .navbar-default {
   background-image: url("../imgs/misc/handmadepaper.png");
   border-color: saddlebrown;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -112,6 +119,7 @@ h3 {
 .navbar-default .navbar-nav > .active > a:hover,
 .btn-group > .btn.active {
   background-color: lightskyblue;
+  color: #000;
 }
 
 .navbar-toggle {
@@ -128,4 +136,25 @@ h3 {
 
 hr {
   border-color: saddlebrown;
+}
+
+@media (min-width: 768px) {
+  /* Experience */
+  .flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .exp-cmg-text {
+    height: 250px;
+  }
+
+  .exp-caktus-text {
+    height: 370px;
+  }
+
+  .exp-acpg-text {
+    height: 300px;
+  }
 }
