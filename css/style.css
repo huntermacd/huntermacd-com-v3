@@ -7,6 +7,7 @@ html {
 body {
   background-image: url("../imgs/misc/handmadepaper.png");
   padding-top: 50px;
+  font-size: 18px;
 }
 
 .navbar-brand,
@@ -27,8 +28,8 @@ h3 {
   margin: 0 auto;
 }
 
-.exp-header {
-  margin: 0 auto;
+.center-in-col {
+  margin: 0 auto 20px auto;
   display: table;
 }
 
@@ -111,6 +112,7 @@ h3 {
 
 .navbar-default .navbar-collapse {
   border-color: saddlebrown;
+  font-size: 14px;
 }
 
 .navbar-default .navbar-toggle:focus,
@@ -157,6 +159,7 @@ hr {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+    flex-direction: column;
   }
 
   .exp-cmg-text {
@@ -169,5 +172,9 @@ hr {
 
   .exp-acpg-text {
     height: 300px;
+  }
+
+  .portfolio-text {
+    height: 580px;
   }
 }
